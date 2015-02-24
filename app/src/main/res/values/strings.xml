@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ang1000</string>
+    <string name="menu_show_info">Informacja</string>
+    <string name="menu_show_mp">Trenuj</string>
+
+    <string name="translated">translate here</string>
+    <string name="btn_check">Sprawdź</string>
+    <string name="btn_read">Zobacz wymowę</string>
+    <string name="btn_next">Następne >></string>
+
+    <string name="background_desc">background_desc</string>
+    <string name="close_window_desc">close_window_desc</string>
+    <string name="speaker_desc">speaker_desc</string>
+    <string name="ok_desc">ok_desc</string>
+    
+    <string name="sinfo"><![CDATA[Celem aplikacji jest nauka 1000 najczęściej używanych słów anglojęzycznych.
+\r\n\r\n
+Aplikacja dobiera tak słowa aby skupiac się na tych których jeszcze za dobrze nie znamy a przy tym stara się terz utrwalać dobrze znane słowa.
+\r\n\r\n
+W razie pytań czy wątpliwości proszę o kontakt pod adresem:
+\r\n
+zoltarianie@gmail.com
+]]></string>
+</resources>
