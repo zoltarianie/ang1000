@@ -39,7 +39,8 @@ public class DialogActivity extends Activity {
 		boolean poprawnie = false;
 		String a1 = extras.getString("en").toLowerCase(Locale.getDefault());
 		String a2 = extras.getString("translated").toLowerCase(Locale.getDefault());
-		if(a1.equals(a2)){
+
+		if(MainActivity.compareWords(a1, a2)){
 			poprawnie = true;
 		}
 		
@@ -95,6 +96,7 @@ public class DialogActivity extends Activity {
 	}
 	
     private void zaladujSlowkoMP3(String sUrl) {
+        sUrl = sUrl.replace("`", "");
     	czyMPGotowe = false;
     	if(mediaPlayer!=null) {
             try {

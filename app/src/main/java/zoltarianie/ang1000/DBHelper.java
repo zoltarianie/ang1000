@@ -21,7 +21,7 @@ public class DBHelper extends SQLiteOpenHelper {
    public Context _context;
    
    public DBHelper(Context context) {
-      super(context, DATABASE_NAME , null, 19);
+      super(context, DATABASE_NAME , null, 24);
       _context = context;
    }
 
@@ -41,17 +41,37 @@ public class DBHelper extends SQLiteOpenHelper {
 	public void serResult(Boolean setRank, HashMap<String, String> aWord) {
 		int iNewRank = Integer.parseInt(aWord.get("rank"));
 		if(setRank) {
-			if (iNewRank < 0) iNewRank = 0;
+			if (iNewRank < 0) iNewRank = 1;
 			else iNewRank++;
 		} else {
 			if (iNewRank <= 0) iNewRank--;
-			else iNewRank = 0;
+			else iNewRank = -1;
 		}
 
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.execSQL("UPDATE slowka SET rank = "+iNewRank+", count=30 WHERE id = "+aWord.get("id")+";");
 		db.execSQL("UPDATE slowka SET count = count-1 WHERE count > 0;");
 	}
+
+    public HashMap<String, String> getResult() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        HashMap<String, String> aResult = new HashMap<String, String>();
+        Cursor c;
+
+        c = db.rawQuery("SELECT * FROM slowka WHERE rank < 0;", null);
+        aResult.put("err", ""+c.getCount());
+        c.close();
+
+        c = db.rawQuery("SELECT * FROM slowka WHERE rank == 0;", null);
+        aResult.put("yet", ""+c.getCount());
+        c.close();
+
+        c = db.rawQuery("SELECT * FROM slowka WHERE rank > 0;", null);
+        aResult.put("ok", ""+c.getCount());
+        c.close();
+
+        return(aResult);
+    }
 
 	public HashMap<String, String> getWord() {
 		SQLiteDatabase db = this.getReadableDatabase();

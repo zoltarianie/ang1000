@@ -82,7 +82,8 @@ public class MainActivity extends Activity {
 
 		String s1 = aWorld.get("en").toLowerCase(Locale.getDefault());
 		String s2 = sTranslated.toLowerCase(Locale.getDefault());
-		myDB.serResult((s1.equals(s2)), aWorld);
+
+        myDB.serResult(compareWords(s1, s2), aWorld);
 	}
 
     private void setNewWorld() {
@@ -93,14 +94,20 @@ public class MainActivity extends Activity {
     	TextView text = (TextView) findViewById(R.id.to_translate);
 		text.setText(aWorld.get("pl"));
 
-		//TextView text_read = (TextView) findViewById(R.id.text_read);
-		//text_read.setText(getString(R.string.btn_read));
+        HashMap<String, String> aWyn = myDB.getResult();
+        TextView tvWynOk = (TextView) findViewById(R.id.tvWynOk);
+        TextView tvWynYet = (TextView) findViewById(R.id.tvWynYet);
+        TextView tvWynErr = (TextView) findViewById(R.id.tvWynErr);
+        tvWynOk.setText(aWyn.get("ok"));
+        tvWynYet.setText(aWyn.get("yet"));
+        tvWynErr.setText(aWyn.get("err"));
     }
 
-	/*
-	public void textReadClick(final View view){
-		TextView text = (TextView) findViewById(R.id.text_read);
-		text.setText(aWorld.get("re"));
-	}
-	*/
+    public static Boolean compareWords(String s1 , String s2) {
+        String a1_com = s1.replace("'", "");
+        String a2_com = s2.replace("'", "");
+        a1_com = a1_com.replace("`", "");
+        a2_com = a2_com.replace("`", "");
+        return(a1_com.equals(a2_com));
+    }
 }

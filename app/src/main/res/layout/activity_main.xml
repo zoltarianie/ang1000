@@ -3,17 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="#FF00FF"
+    android:background="#ad000000"
     tools:context=".MainActivity" >
 
     <ImageView
         android:adjustViewBounds="true"
-        android:contentDescription="@string/background_desc"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:layout_centerInParent="true"
 		android:scaleType="centerCrop"
-		android:src="@drawable/background" />
+		android:src="@drawable/background"/>
 
     <TextView
         android:scrollHorizontally="false"
@@ -45,17 +44,88 @@
         android:layout_below="@+id/translated"
         android:background="@drawable/btn_sprawdz"
         android:text="@string/btn_check" />
-<!--
-    <TextView
-        android:onClick="textReadClick"
-        android:layout_below="@+id/btn_check"
-        android:id="@+id/text_read"
-        style="@style/SG.text_read"
-        android:maxLines="1"
-        android:singleLine="true"
-        android:layout_width="fill_parent"
+
+    <LinearLayout
+        android:paddingTop="5dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_read" />
--->
+        android:background="#AAFFFFFF" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:singleLine="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Dobrze"
+                android:textSize="15dp"
+                android:gravity="center" />
+
+            <TextView
+                android:singleLine="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nie było"
+                android:textSize="15dp"
+                android:gravity="center" />
+
+            <TextView
+                android:singleLine="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Żle"
+                android:textSize="15dp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:singleLine="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="40dp"
+                android:text="1000"
+                android:gravity="center"
+                android:textColor="#006600"
+                android:id="@+id/tvWynOk" />
+
+            <TextView
+                android:singleLine="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="40dp"
+                android:text="1000"
+                android:gravity="center"
+                android:textColor="#333333"
+                android:id="@+id/tvWynYet" />
+
+            <TextView
+                android:singleLine="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="40dp"
+                android:text="1000"
+                android:gravity="center"
+                android:textColor="#660000"
+                android:id="@+id/tvWynErr" />
+
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
 
